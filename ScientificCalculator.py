@@ -1,4 +1,4 @@
-import ScientificCalculatorMethods as cal 
+from ScientificCalculatorMethods import compute_sqrt,print_result,compute_factorial,compute_log,compute_power
 
 flag=1
 
@@ -13,30 +13,30 @@ while(flag):
     if(choice==1):
         try:
             number=int(input("Enter the number:"))
-            result= cal.compute_sqrt(number)
-            cal.print_result(result)
+            result= compute_sqrt(number)
+            print_result(result)
         except:
             print("Please enter a valid input")
     elif(choice==2):
         try:
             number=int(input("Enter the number:"))
-            result=cal.compute_factorial(number)
-            cal.print_result(result)
+            result=compute_factorial(number)
+            print_result(result)
         except:
             print("Please enter a valid input")
     elif(choice==3):
         try:
             number=int(input("Enter the number:"))
-            result=cal.compute_log(number)
-            cal.print_result(result)
+            result=compute_log(number)
+            print_result(result)
         except:
             print("Please enter a valid input")
     elif(choice==4):
         try:
             base=int(input("Enter the base number:"))
             power=int(input("Enter the power:"))
-            result=cal.compute_power(base,power)
-            cal.print_result(result)
+            result=compute_power(base,power)
+            print_result(result)
         except:
             print("Please enter a valid input")
     elif(choice==0):
