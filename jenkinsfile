@@ -17,8 +17,8 @@ pipeline {
         }
         stage('Build Code') {
             steps {
-                sh "chmod u+x ScientificCalculator.py"
-                sh "python3 ./ScientificCalculator.py"
+                sh "chmod u+x ScientificCalculatorMethods.py"
+                sh "python3 ./ScientificCalculatorMethods.py"
             }
         }
      stage('Test Code') {
