@@ -2,17 +2,29 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = 'calculator'
-        GITHUB_REPO_URL = 'https://github.com/IfrahRamadurg/MiniProjectSampleDemo.git'
+        DOCKER_IMAGE_NAME = 'miniproject'
+        GITHUB_REPO_URL = 'https://github.com/IfrahRamadurg/MiniProject.git'
     }
 
     stages {
-        stage('Checkout') {
+        stage('Clone Git') {
             steps {
                 script {
                     // Checkout the code from the GitHub repository
                     git branch: 'main', url: "${GITHUB_REPO_URL}"
                 }
+            }
+        }
+        stage('Build Code') {
+            steps {
+                sh "chmod u+x ScientificCalculator.py"
+                sh "./ScientificCalculator.py"
+            }
+        }
+     stage('Test Code') {
+            steps {
+                sh "chmod u+x TestScientificCalculator.py"
+                sh "./TestScientificCalculator.py"
             }
         }
 
@@ -29,8 +41,8 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('', 'DockerHubCred') {
-                    sh 'docker tag calculator halwaikeladdoo/calculator:latest'
-                    sh 'docker push halwaikeladdoo/calculator'
+                    sh 'docker tag miniproject halwaikeladdoo/miniproject:latest'
+                    sh 'docker push halwaikeladdoo/miniproject'
                     }
                  }
             }
