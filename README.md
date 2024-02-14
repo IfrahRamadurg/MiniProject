@@ -11,3 +11,4 @@ Implementing the DevOps Concept
 7. Using ansible playbook to run it on the local system
 
 (Note: Check for Git SCM Polling)
+(Make sure the conatiner is stopped or run before running the job again as ansible step may fail)
