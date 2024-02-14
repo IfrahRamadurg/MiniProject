@@ -9,3 +9,5 @@ Implementing the DevOps Concept
 5. Pushes the application to docker hub repository
 6. Fetches the docker hub image
 7. Using ansible playbook to run it on the local system
+
+(Note: Check for Git SCM Polling)
